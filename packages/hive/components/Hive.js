@@ -1,38 +1,52 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
-import { Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
+import {
+  StyleSheet,
+  Image
+} from 'react-native';
+import {
+  Body,
+  Button,
+  Card,
+  CardItem,
+  Icon,
+  Left,
+  Right,
+  Text,
+  Thumbnail,
+} from 'native-base';
 
 export default class Hive extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
   render() {
     return (
       <Card>
         <CardItem>
           <Left>
-            <Thumbnail source={{ uri: '../assets/hive.png' }} />
+            <Thumbnail source={{ uri: this.props.thumbnail }} />
             <Body>
-              <Text>NativeBase</Text>
-              <Text note>GeekyAnts</Text>
+              <Text>{this.props.name}</Text>
+              <Text note>{this.props.description}</Text>
             </Body>
           </Left>
         </CardItem>
         <CardItem cardBody>
-          <Image source={{ uri: 'Image URL' }} style={{ height: 200, width: null, flex: 1 }} />
+          <Image source={{ uri: this.props.image }} style={styles.logo} />
         </CardItem>
         <CardItem>
           <Left>
             <Button transparent>
-              <Icon active name="thumbs-up" />
-              <Text>12 Likes</Text>
+              <Icon active name="people" />
+              <Text>{this.props.drones} / {this.props.honeycombs} Drones</Text>
             </Button>
           </Left>
-          <Body>
-            <Button transparent>
-              <Icon active name="chatbubbles" />
-              <Text>4 Comments</Text>
-            </Button>
-          </Body>
           <Right>
-            <Text>11h ago</Text>
+            <Button bordered>
+            <Text>Join</Text>
+            <Icon active name="person-add" />
+            </Button>
           </Right>
         </CardItem>
       </Card>
@@ -40,11 +54,20 @@ export default class Hive extends React.Component {
   }
 }
 
+Hive.defaultProps = {
+  name: "DefaultName",
+  description: "This is a description",
+  thumbnail: "../hive.png",
+  image: "../assets/hive",
+  drones: 5,
+  honeycombs: 7,
+  openings: 2,
+}
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgb(0, 157, 220)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  logo: { 
+    height: 200,
+    width: null,
+    flex: 1 
+  }
 });
