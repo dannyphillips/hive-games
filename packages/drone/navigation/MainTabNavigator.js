@@ -26,7 +26,7 @@ export default TabNavigator(
     Game: {
       screen: GameScreen
     },
-    Links: {
+    Players: {
       screen: PlayersScreen
     },
     Settings: {
@@ -54,20 +54,20 @@ export default TabNavigator(
           case "Lobby":
             iconName =
               Platform.OS === "ios"
-                ? `ios-game-controller-b${focused ? "" : "-outline"}`
-                : "md-game-controller-b";
+                ? `ios-link${focused ? "" : "-outline"}`
+                : "md-link";
             break;
           case "Game":
             iconName =
               Platform.OS === "ios"
-                ? `ios-information-circle${focused ? "" : "-outline"}`
-                : "md-information-circle";
+                ? `ios-game-controller-b${focused ? "" : "-outline"}`
+                : "md-game-controller-b";
             break;
-          case "Links":
+          case "Players":
             iconName =
               Platform.OS === "ios"
-                ? `ios-link${focused ? "" : "-outline"}`
-                : "md-link";
+                ? `ios-people${focused ? "" : "-outline"}`
+                : "md-people";
             break;
           case "Settings":
             iconName =
