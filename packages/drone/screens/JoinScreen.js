@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { Container, Content } from "native-base";
-import Game from "../components/Game";
+import GameCard from "../components/GameCard";
 
 import catanLogo from "../assets/images/catan-logo.png";
 import catan from "../assets/images/catan.png";
@@ -17,7 +17,7 @@ export default class JoinScreen extends React.Component {
     return (
       <Content>
         <Content style={styles.container}>
-          <Game
+          <GameCard
             name={"Apples to Apples"}
             description={"Win the game!"}
             max={5}
@@ -25,7 +25,7 @@ export default class JoinScreen extends React.Component {
             thumbnail={applesLogo}
             image={apples}
           />
-          <Game
+          <GameCard
             name={"Settlers of Catan"}
             description={"Win the game!"}
             max={4}
@@ -33,7 +33,7 @@ export default class JoinScreen extends React.Component {
             thumbnail={catanLogo}
             image={catan}
           />
-          <Game
+          <GameCard
             name={"Quixx"}
             description={"Win the game!"}
             max={8}
