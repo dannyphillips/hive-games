@@ -46,6 +46,9 @@ export default class JoinScreen extends React.Component {
     );
   }
 }
+JoinScreen.defaultProps = {
+  games: [{}, {}, {}, {}, {}]
+};
 
 const styles = StyleSheet.create({
   container: {

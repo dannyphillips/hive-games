@@ -1,28 +1,36 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { Container, Header, Content, List } from "native-base";
+import { Container, Header, Content, List, Text } from "native-base";
 import PlayerCard from "../components/PlayerCard";
 
 export default class LobbyScreen extends React.Component {
   static navigationOptions = { title: "Lobby" };
 
   render() {
+    const { players, size } = this.props;
     return (
       <Container>
-        <Header />
+        <Header>
+          <Text>
+            Active Players ({players.length}/{size})
+          </Text>
+        </Header>
         <Content>
           <List>
-            <PlayerCard />
-            <PlayerCard />
-            <PlayerCard />
-            <PlayerCard />
-            <PlayerCard />
+            {players.map((player, i) => {
+              return <PlayerCard key={i} />;
+            })}
           </List>
         </Content>
       </Container>
     );
   }
 }
+
+LobbyScreen.defaultProps = {
+  players: [{}, {}, {}, {}, {}],
+  size: 7
+};
 
 const styles = StyleSheet.create({
   container: {
