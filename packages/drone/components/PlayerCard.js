@@ -20,14 +20,14 @@ export default class PlayerCard extends React.Component {
   render() {
     const { name, battleCry, thumbnail } = this.props;
     return (
-      <ListItem>
+      <ListItem avatar>
         <Left>
-          <Thumbnail square size={80} source={thumbnail} />
-          <Body>
-            <Text>{name}</Text>
-            <Text note>{battleCry}</Text>
-          </Body>
+          <Thumbnail size={80} source={thumbnail} />
         </Left>
+        <Body>
+          <Text>{name}</Text>
+          <Text note>{battleCry}</Text>
+        </Body>
         <Right>
           <Button transparent>
             <Icon active name="information-circle" />

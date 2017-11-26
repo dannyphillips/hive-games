@@ -46,7 +46,7 @@ export default class GameCard extends React.Component {
           </Left>
           <Right>
             <Button bordered>
-              <Text>+ Join</Text>
+              <Text>+ Host</Text>
             </Button>
           </Right>
         </CardItem>

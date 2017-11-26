@@ -5,6 +5,7 @@ import { TabNavigator, TabBarBottom } from "react-navigation";
 
 import Colors from "../constants/Colors";
 
+import HostScreen from "../screens/HostScreen";
 import JoinScreen from "../screens/JoinScreen";
 import LobbyScreen from "../screens/LobbyScreen";
 import GameScreen from "../screens/GameScreen";
@@ -13,6 +14,9 @@ import SettingsScreen from "../screens/SettingsScreen";
 
 export default TabNavigator(
   {
+    Host: {
+      screen: HostScreen
+    },
     Join: {
       screen: JoinScreen
     },
@@ -35,6 +39,12 @@ export default TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
+          case "Host":
+            iconName =
+              Platform.OS === "ios"
+                ? `ios-add-circle${focused ? "" : "-outline"}`
+                : "md-add-circle";
+            break;
           case "Join":
             iconName =
               Platform.OS === "ios"
