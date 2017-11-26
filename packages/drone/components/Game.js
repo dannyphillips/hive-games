@@ -11,8 +11,8 @@ import {
   Text,
   Thumbnail
 } from "native-base";
-import thumbnail from "../assets/images/hive.png";
-import image from "../assets/images/drone.png";
+import hive from "../assets/images/hive.png";
+import drone from "../assets/images/drone.png";
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -20,14 +20,15 @@ export default class Game extends React.Component {
   }
 
   render() {
+    const { filled, max, name, description, thumbnail, image } = this.props;
     return (
       <Card>
         <CardItem>
           <Left>
             <Thumbnail source={thumbnail} />
             <Body>
-              <Text>{this.props.name}</Text>
-              <Text note>{this.props.description}</Text>
+              <Text>{name}</Text>
+              <Text note>{description}</Text>
             </Body>
           </Left>
         </CardItem>
@@ -39,7 +40,7 @@ export default class Game extends React.Component {
             <Button transparent>
               <Icon active name="people" />
               <Text>
-                {this.props.drones} / {this.props.honeycombs} Drones
+                {filled} / {max} Players
               </Text>
             </Button>
           </Left>
@@ -57,16 +58,15 @@ export default class Game extends React.Component {
 Game.defaultProps = {
   name: "DefaultName",
   description: "This is a description",
-  thumbnail: "../assets/images/hive.png",
-  image: "../assets/hive",
-  drones: 5,
-  honeycombs: 7,
-  openings: 2
+  thumbnail: hive,
+  image: drone,
+  max: 5,
+  filled: 7
 };
 
 const styles = StyleSheet.create({
   logo: {
-    height: 200,
+    height: 400,
     width: null,
     flex: 1
   }
