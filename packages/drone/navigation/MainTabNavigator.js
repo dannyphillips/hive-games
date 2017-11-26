@@ -1,25 +1,33 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
+import React from "react";
+import { Platform } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { TabNavigator, TabBarBottom } from "react-navigation";
 
-import Colors from '../constants/Colors';
+import Colors from "../constants/Colors";
 
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import JoinScreen from "../screens/JoinScreen";
+import LobbyScreen from "../screens/LobbyScreen";
+import GameScreen from "../screens/GameScreen";
+import PlayersScreen from "../screens/PlayersScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 
 export default TabNavigator(
   {
-    Home: {
-      screen: HomeScreen,
+    Join: {
+      screen: JoinScreen
+    },
+    Lobby: {
+      screen: LobbyScreen
+    },
+    Game: {
+      screen: GameScreen
     },
     Links: {
-      screen: LinksScreen,
+      screen: PlayersScreen
     },
     Settings: {
-      screen: SettingsScreen,
-    },
+      screen: SettingsScreen
+    }
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -27,18 +35,35 @@ export default TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Home':
+          case "Join":
             iconName =
-              Platform.OS === 'ios'
-                ? `ios-information-circle${focused ? '' : '-outline'}`
-                : 'md-information-circle';
+              Platform.OS === "ios"
+                ? `ios-add-circle${focused ? "" : "-outline"}`
+                : "md-add-circle";
             break;
-          case 'Links':
-            iconName = Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link';
-            break;
-          case 'Settings':
+          case "Lobby":
             iconName =
-              Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
+              Platform.OS === "ios"
+                ? `ios-game-controller-b${focused ? "" : "-outline"}`
+                : "md-game-controller-b";
+            break;
+          case "Game":
+            iconName =
+              Platform.OS === "ios"
+                ? `ios-information-circle${focused ? "" : "-outline"}`
+                : "md-information-circle";
+            break;
+          case "Links":
+            iconName =
+              Platform.OS === "ios"
+                ? `ios-link${focused ? "" : "-outline"}`
+                : "md-link";
+            break;
+          case "Settings":
+            iconName =
+              Platform.OS === "ios"
+                ? `ios-options${focused ? "" : "-outline"}`
+                : "md-options";
         }
         return (
           <Ionicons
@@ -48,11 +73,11 @@ export default TabNavigator(
             color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
           />
         );
-      },
+      }
     }),
     tabBarComponent: TabBarBottom,
-    tabBarPosition: 'bottom',
+    tabBarPosition: "bottom",
     animationEnabled: false,
-    swipeEnabled: false,
+    swipeEnabled: false
   }
 );
