@@ -9,7 +9,7 @@
     }
   },
   "scripts": {
-    "precommit": "lint-staged",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,6 @@
   "bugs": {
     "url": "https://github.com/dannyphillips/hive-games/issues"
   },
-  "Dependencies": {
-
-  },
   "devDependencies": {
     "@commitlint/cli": "^4.3.0",
     "@commitlint/config-angular": "^4.3.0",
@@ -30,7 +27,7 @@
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^0.14.3",
     "lint-staged": "^5.0.0",
-    "prettier": "^1.8.2",
+    "prettier": "^1.8.2"
   },
   "homepage": "https://github.com/dannyphillips/hive-games#readme"
 }
