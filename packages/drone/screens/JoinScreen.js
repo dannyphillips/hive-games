@@ -24,6 +24,7 @@ export default class JoinScreen extends React.Component {
             filled={3}
             thumbnail={applesLogo}
             image={apples}
+            onPress={this.props.navigation.navigate("Lobby")}
           />
           <GameCard
             name={"Settlers of Catan"}

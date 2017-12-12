@@ -20,7 +20,15 @@ export default class GameCard extends React.Component {
   }
 
   render() {
-    const { filled, max, name, description, thumbnail, image } = this.props;
+    const {
+      filled,
+      max,
+      name,
+      description,
+      thumbnail,
+      image,
+      onPress
+    } = this.props;
     return (
       <Card>
         <CardItem>
@@ -45,7 +53,7 @@ export default class GameCard extends React.Component {
             </Button>
           </Left>
           <Right>
-            <Button bordered>
+            <Button bordered onPress={onPress}>
               <Text>+ Host</Text>
             </Button>
           </Right>
